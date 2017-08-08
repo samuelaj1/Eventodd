@@ -65,7 +65,7 @@ export class PostPage {
   ionViewDidEnter(){
     this.afu.auth.onAuthStateChanged(function(user){
       if(user){
-        this.user_data.user_key=user.uid;
+        console.log(user.uid);
        // u.email=user.email;
       }
       else{
