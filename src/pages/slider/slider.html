@@ -1,0 +1,18 @@
+
+
+<ion-content class="tutorial-page">
+
+  <ion-slides pager >
+    <ion-slide *ngFor="let slide of slides" >
+      <h2 text-center class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+    </ion-slide>
+    <ion-slide>
+      <h2 class="slide-title">Let's Hook Up!</h2>
+      <button ion-button large clear icon-end color="yellow" (click)="login()">
+        Sign Up
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

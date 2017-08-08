@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar color="yellow">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dashboard</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+   <ion-card >
+    <img src="assets/event.jpg"/>
+
+    <ion-card-content>
+      <ion-card-title>
+        Nine Inch Nails Live
+      </ion-card-title>
+      <p>
+        Venue: Legon-Hall <br/>
+        Time: Sat Aug 13 2017 at 5:30pm
+      </p>
+    </ion-card-content>
+    <hr>
+    <ion-grid>
+    <ion-row no-padding>
+      <ion-col col-4>
+        <button (click)="statsTab(button1)" ion-button clear small color="danger" icon-start>
+          <ion-icon name='star'></ion-icon>
+          Statistics
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button (click)="statsTab(button2)" ion-button clear small color="danger" icon-start>
+          <ion-icon name='exit'></ion-icon>
+          Check-Ins
+        </button>
+      </ion-col>
+      <ion-col col-4 >
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='share-alt'></ion-icon>
+          Share
+        </button>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+</ion-card> 
+
+<!--<div padding text-center style="width:70%; position:absolute; top:30%; left:16%;" >
+   <h4 style="font-weight:300">No Event Posted Yet </h4>
+  <button ion-button color="yellow" outline round block (click)="openPage(postpage)">Post An Event</button>
+
+</div>-->
+</ion-content>

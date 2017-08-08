@@ -1,0 +1,49 @@
+<ion-menu [content]="content">
+  
+
+  <ion-content>
+    <ion-list no-lines>
+      <!-- <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button> -->
+      <ion-item padding style="background-image:url('assets/event.jpg')">
+        <ion-avatar item-right>
+            <img src="assets/avatar.png" style="width: 80px;height:80px;">
+        </ion-avatar>
+         
+            <p style="position:absolute; top:82%; color:white;">{{user.email}}</p>
+      </ion-item>
+      <ion-item menuClose (click)="openPage(dashboard)" style="margin-top:20px;"><ion-icon item-left name="ios-apps-outline" color="yellow" ></ion-icon>
+          Dashboard
+      </ion-item>
+        <ion-item menuClose (click)="pushPage(postpage)"><ion-icon item-left name="paper-plane" color="yellow"></ion-icon>
+         Post Your Event
+      </ion-item>
+        <ion-item menuClose (click)="openPage(history)"><ion-icon item-left name="calendar" color="yellow"></ion-icon>
+          History
+        </ion-item>
+    </ion-list>
+    <ion-list no-lines>
+      <ion-list-header>Other</ion-list-header>
+      <ion-item menuClose (click)="pushPage(scanPage)"><ion-icon item-left name="heart" color="yellow"></ion-icon>
+          Scan
+      </ion-item>
+      <ion-item menuClose (click)="pushPage(faq)"><ion-icon item-left name="help" color="yellow"></ion-icon>
+          Faq
+      </ion-item>
+        <ion-item menuClose (click)="pushPage(settings)"><ion-icon item-left name="settings" color="yellow"></ion-icon>
+          Settings
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+  <ion-footer>
+    <ion-item menuClose (click)="logOut()"><ion-icon item-left name="exit" color="yellow"></ion-icon>
+          Log Out
+      </ion-item>
+  </ion-footer>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar color="yellow">
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+ <div text-center style="margin-bottom:20px;">
+   <ion-item text-center no-lines>
+     <img src="assets/avatar.png" style="width: 150px;height: 150px;border-radius:50%">
+   </ion-item>
+   <button ion-button color="yellow" outline round>Change Profile Picture</button>
+ </div>
+ 
+
+  <form class="settings-form">
+    <ion-list class="user-data-content">
+      <ion-item>
+        <ion-label stacked>Name</ion-label>
+        <ion-input type="text" value="" [disabled]="disabled"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Number</ion-label>
+        <ion-input type="text" value="" [disabled]="disabled"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input rows="5" value="" [disabled]="disabled"></ion-input>
+      </ion-item>
+    </ion-list>
+
+   
+  </form>
+ 
+ <ion-fab bottom right>
+   <button ion-fab color="yellow"><ion-icon name="ios-checkbox-outline"></ion-icon></button>
+  </ion-fab>
+</ion-content>

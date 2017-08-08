@@ -1,0 +1,115 @@
+
+<ion-header>
+
+  <ion-navbar color="yellow">
+    <ion-title>Post An Event</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-slides #slider (ionSlideDidChange)="onSlideChanged()" >
+  <ion-slide>
+    <!--form one goes here-->
+    <ion-row>
+        <ion-col>
+          <ion-list >
+            <h3 class=".section-title" text-center>Add an event</h3>
+            <ion-item >
+              <ion-input class="textbox" type="text" placeholder="Event Name" [(ngModel)]="postevent.event_title" name="eventname"  required></ion-input>
+              <ion-icon name="person" color="yellow" item-right></ion-icon>
+            </ion-item>
+            
+            <ion-item>
+            <ion-label style="margin-left:7px; color:#b2beb5;" >Event Type</ion-label>
+            <ion-select [(ngModel)]="postevent.event_type" name="eventType">
+              <ion-option value="birthday">BirthDay</ion-option>
+              <ion-option value="entertainment">Entertainment</ion-option>
+            </ion-select>
+          </ion-item>
+           <ion-item style="margin-bottom:30px;">
+            <ion-textarea rows="6" placeholder="Enter a description" [(ngModel)]="postevent.description" name="description"></ion-textarea>
+          </ion-item>
+
+           <ion-item>
+            <ion-label style="margin-left:7px;color:#b2beb5;">Regions</ion-label>
+            <ion-select [(ngModel)]="postevent.regions" name="regions">
+              <ion-option value="accra">Accra</ion-option>
+              <ion-option value="kumasi">Kumasi</ion-option>
+            </ion-select>
+          </ion-item>
+          </ion-list>
+        </ion-col>
+    </ion-row>
+    <!--end of form one-->
+  </ion-slide>
+  <ion-slide>
+    <!--form two goes here-->
+    <ion-row>
+      <ion-col>
+    <ion-list>
+      <h3 class=".section-title" text-center>HoHo!! Add More Details</h3>
+      <ion-item>
+            <ion-label style="margin-left:7px; color:#b2beb5;">Event Date</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" name="eventdate" [(ngModel)]="postevent.event_date" required></ion-datetime>
+            <ion-icon name="calendar" color="yellow" item-right></ion-icon>
+          </ion-item>
+
+          <ion-item >
+              <ion-input class="textbox" type="text" [(ngModel)]="postevent.location" placeholder="Location"  required></ion-input>
+               <ion-icon name="navigate" color="yellow" item-right></ion-icon>
+            </ion-item>
+
+           <ion-item >
+              <ion-input class="textbox" type="text" placeholder="Venue"  [(ngModel)]="postevent.venue" required></ion-input>
+              <ion-icon name="podium" color="yellow" item-right></ion-icon>
+          </ion-item>
+
+          <ion-item >
+              <ion-input class="textbox" type="number" placeholder="Seats" [(ngModel)]="postevent.total_seats"  required></ion-input>
+              <ion-icon name="man" color="yellow" item-right></ion-icon>
+          </ion-item>
+          <button medium block ion-button outline color="yellow" (click)="showPrompt()">Ticket Type (Optional)<ion-icon name="arrow-forward"></ion-icon></button>
+          <ion-item *ngFor="let item of postevent.ticket_type; let i=index">
+             <ion-icon name="close" color="yellow" (click)="delete(i)" item-end></ion-icon><p>{{item.name}} {{item.amount}} </p>
+          </ion-item>
+    </ion-list>
+        </ion-col>
+        </ion-row>
+    <!--end of form two-->
+  </ion-slide>
+  <ion-slide >
+    <!--form 3 goes here-->
+    <ion-row>
+        <ion-col>
+    <ion-list>
+      <ion-item>
+        <ion-card *ngIf="imageData.data">
+          <ion-card-content>
+          <img  style="width:260px; height:200px" [src]="imageData.data" />
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+     <ion-item >
+        <a ion-button block color="yellow" (click)="filechooser()"large class="upload-image-button">
+           <ion-icon name="camera"></ion-icon>
+           <h3 class="button-title">upload an image</h3>
+        </a>
+    </ion-item>
+    </ion-list>
+        </ion-col>
+        </ion-row>
+    <!--end of form 3-->
+  </ion-slide>
+</ion-slides>
+ <ion-fab bottom left *ngIf="beginning">
+   <button ion-fab color="yellow" (click)="previous()"><ion-icon name="arrow-back"></ion-icon></button>
+ </ion-fab>
+  <ion-fab bottom right *ngIf="end">
+   <button ion-fab color="yellow" (click)="next()"><ion-icon name="arrow-forward"></ion-icon></button>
+ </ion-fab>
+  <ion-fab bottom right *ngIf="postme">
+   <button ion-fab color="yellow" (click)="uploadall()"><ion-icon name="paper-plane"></ion-icon></button>
+ </ion-fab>
+</ion-content>

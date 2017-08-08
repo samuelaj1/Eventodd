@@ -1,0 +1,137 @@
+<form #form='ngForm' (ngSubmit)="submit()">
+      <ion-row>
+        <ion-col>
+          <ion-list >
+            <h2 class="section-title">Add an event</h2>
+            <ion-item >
+              <ion-input class="textbox" type="text" placeholder="Event Name" ngModel name="eventname"  required></ion-input>
+              <ion-icon name="person" color="yellow" item-right></ion-icon>
+            </ion-item>
+            
+            <ion-item>
+            <ion-label style="margin-left:7px; color:#b2beb5;" >Event Type</ion-label>
+            <ion-select ngModel name="eventType">
+              <ion-option value="birthday">BirthDay</ion-option>
+              <ion-option value="entertainment">Entertainment</ion-option>
+            </ion-select>
+          </ion-item>
+           <ion-item style="margin-bottom:30px;">
+            <ion-textarea rows="6" placeholder="Enter a description" ngModel name="description"></ion-textarea>
+          </ion-item>
+
+           <ion-item>
+            <ion-label style="margin-left:7px;color:#b2beb5;">Regions</ion-label>
+            <ion-select ngModel name="regions">
+              <ion-option value="accra">Accra</ion-option>
+              <ion-option value="kumasi">Kumasi</ion-option>
+            </ion-select>
+          </ion-item>
+            
+          <ion-item>
+            <ion-label style="margin-left:7px; color:#b2beb5;">Event Date</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" name="eventdate" ngModel required></ion-datetime>
+            <ion-icon name="calendar" color="yellow" item-right></ion-icon>
+          </ion-item>
+
+          <ion-item >
+              <ion-input class="textbox" type="text"  placeholder="Location"  required></ion-input>
+               <ion-icon name="navigate" color="yellow" item-right></ion-icon>
+            </ion-item>
+
+           <ion-item >
+              <ion-input class="textbox" type="text" placeholder="Venue"  name="venue" ngModel required></ion-input>
+              <ion-icon name="podium" color="yellow" item-right></ion-icon>
+          </ion-item>
+
+          <ion-item >
+              <ion-input class="textbox" type="text" placeholder="Seats"  name="seats" ngModel  required></ion-input>
+              <ion-icon name="man" color="yellow" item-right></ion-icon>
+          </ion-item>
+
+          <ion-item >
+              <button ion-button block color="yellow" large class="upload-image-button">
+            <ion-icon name="camera"></ion-icon>
+            
+              </button>
+          </ion-item>
+            
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit" color="yellow" round >Publish</button>
+        </ion-col>
+      </ion-row>
+      
+    </form>
+    <!--<form class="sample-form event-form">
+        <section class="form-section">
+          <h2 class="section-title">Add an event</h2>
+          <ion-item>
+            <ion-input type="text" placeholder="Event title"></ion-input>
+          </ion-item>
+          <ion-item icon-right>
+            <ion-input type="text" placeholder="Location"></ion-input>
+            <ion-icon name="navigate" item-right></ion-icon>
+          </ion-item>
+          <ion-row no-padding class="multi-input-row">
+            <ion-col no-padding width-60>
+              <ion-item class="multi-input time-item">
+                <ion-label floating>From</ion-label>
+                <ion-datetime  displayFormat="DD/MM/YY" pickerFormat="DD-MM-YYYY"></ion-datetime>
+              </ion-item>
+            </ion-col>
+            <ion-col no-padding width-40>
+              <ion-item class="multi-input time-item">
+                <ion-datetime displayFormat="h mm a" pickerFormat="h mm A"></ion-datetime>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row no-padding class="multi-input-row">
+            <ion-col no-padding width-60>
+              <ion-item class="multi-input time-item">
+                <ion-label floating>To</ion-label>
+                <ion-datetime displayFormat="DD/MM/YY" pickerFormat="DD-MM-YYYY"></ion-datetime>
+              </ion-item>
+            </ion-col>
+            <ion-col no-padding width-40>
+              <ion-item class="multi-input time-item">
+                <ion-datetime displayFormat="h mm a" pickerFormat="h mm A"></ion-datetime>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </section>
+        <section class="form-section">
+          <button ion-button block class="form-action-button create-event-button" type="submit" >Done!</button>
+        </section>
+      </form>
+    <form class="sample-form post-form" >
+        <section class="form-section">
+          <ion-item>
+            <ion-input type="text" placeholder="Title: e.g. Krabby Patty"></ion-input>
+          </ion-item>
+          <button ion-button block large class="upload-image-button">
+            <ion-icon name="camera"></ion-icon>
+            <h3 class="button-title">upload an image</h3>
+          </button>
+        </section>
+        <ion-item>
+          <ion-textarea rows="7" placeholder="Write a description or something..." ></ion-textarea>
+        </ion-item>
+        <section class="form-section">
+          <button ion-button block icon-right class="choose-category-button" (click)="chooseCategory()">
+            Choose category
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </section>
+        <h2 class="section-title">Serves, times and temps</h2>
+        <ion-item class="time-item">
+          <ion-label>Time</ion-label>
+          <ion-datetime displayFormat="h:mm" pickerFormat="h mm"></ion-datetime>
+        </ion-item>
+        <section class="form-section">
+          <button ion-button block class="form-action-button create-post-button" type="submit" >Post!</button>
+        </section>
+      </form>-->
