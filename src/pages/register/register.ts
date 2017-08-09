@@ -46,8 +46,8 @@ export class Register {
         content:"Signing Up !!"
       });
       loading.present();
-    this.af.auth.createUserWithEmailAndPassword(param.value.email,param.value.password).then(()=>{
-        this.db.list('/publisher').push({username:param.value.username, email:param.value.email, picture:"http://google.com"});
+    this.af.auth.createUserWithEmailAndPassword(param.value.email,param.value.password).then((user)=>{
+        this.db.list('/publisher').update(user.uid,{username:param.value.username, email:param.value.email, picture:"http://google.com",event_published:[]});
         loading.dismiss().catch(error=>{});
         this.login();
     });

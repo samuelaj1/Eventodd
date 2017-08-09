@@ -22,15 +22,11 @@ import { AlertController } from 'ionic-angular';
 })
 export class PostPage {
   imageurl:any;
-  user_data = {
-    user_key:'',
-    user_event:''
-  }
   postevent= {
-	event_title:"Event title",
-	event_type:"birthday",
-	description:"Description",
-	regions:"accra",
+	event_title:"",
+	event_type:"",
+	description:"",
+	regions:"",
 	date_published:"10-10-2017",
 	event_date:"2017-12-12",
 	venue:"Accra staduim",
@@ -57,22 +53,14 @@ export class PostPage {
   this.postme = false;
   
 }
+UpdateEventKey(key){
+
+}
 
   ionViewDidLoad() {
-    
    
   }
-  ionViewDidEnter(){
-    this.afu.auth.onAuthStateChanged(function(user){
-      if(user){
-        console.log(user.uid);
-       // u.email=user.email;
-      }
-      else{
-        //this.rootPage=Login;
-      }
-    });
-  }
+ 
   onSlideChanged(){
     if(this.slides.isBeginning()){
       this.beginning = false;
@@ -117,7 +105,26 @@ filechooser(){
 }
 
 uploaddata(){
-  this.user_data.user_event = this.db.list("/events").push(this.postevent).key;
+  let event_key = this.db.list("/events").push(this.postevent).key;
+  this.afu.auth.onAuthStateChanged(user=>{
+       this.db.list("/publisher/"+user.uid).subscribe((r)=>{
+         console.log(r);
+       for(var i=0;i<r.length;i++){
+         if(r[i].constructor === Array){
+           let myarr = r[i];
+           myarr.push({id:event_key});
+            this.db.list('/publisher').update(user.uid,{event_published:myarr});
+            break;
+         }
+          else{
+         continue;
+       }
+       }
+       });
+       
+   });
+ 
+  
 }
 
   uploadall() {
